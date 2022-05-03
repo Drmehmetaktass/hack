@@ -1,4 +1,4 @@
-#!/bin/bash
+##!/bin/bash
 
 ##   Zphisher 	: 	Automated Phishing Tool
 ##   Author 	: 	TAHMID RAYAT 
@@ -154,14 +154,14 @@ kill_pid() {
 banner() {
 	cat <<- EOF
 		${ORANGE}
-		${ORANGE} ______      _     _     _               
-		${ORANGE}|___  /     | |   (_)   | |              
-		${ORANGE}   / / _ __ | |__  _ ___| |__   ___ _ __ 
-		${ORANGE}  / / | '_ \| '_ \| / __| '_ \ / _ \ '__| Mehmet reis
-		${ORANGE} / /__| |_) | | | | \__ \ | | |  __/ |   
-		${ORANGE}/_____| .__/|_| |_|_|___/_| |_|\___|_|   
-		${ORANGE}      | |                                
-		${ORANGE}      |_|                ${RED}Version : 2.2
+		${ORANGE}                           
+		${ORANGE}    / \      / \           | |   (_)   | |              
+		${ORANGE}   / /  \   / / \          _ __ | |__  _ ___| |__   ___ _ __ 
+		${ORANGE}  / / \   \/ / \ \       | '_ \| '_ \| / __| '_ \ / _ \ '__| Mehmet reis
+		${ORANGE} / /    \  /   \  \      | |_) | | | | \__ \ | | |  __/ |   
+		${ORANGE}/__/      \/     \__\     .__/|_| |_|_|___/_| |_|\___|_|   
+		${ORANGE}                                     
+		${ORANGE}                  ${RED}Version : 2.2
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by htr-tech (tahmid.rayat)${WHITE}
 	EOF
@@ -171,9 +171,9 @@ banner() {
 banner_small() {
 	cat <<- EOF
 		${BLUE}
-		${BLUE}  ░▀▀█░█▀█░█░█░▀█▀░█▀▀░█░█░aktaş diyecen█▀▀░█▀▄
-		${BLUE}  ░▄▀░░█▀▀░█▀█░░█░░▀▀█░█▀█░█▀▀░█▀▄
-		${BLUE}  ░▀▀▀░▀░░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀${WHITE} 2.2
+		${BLUE}  ░█▀█░█░▀█▀ aktaş diyecen█▀▀░█▀▄
+		${BLUE}  ░█▀█░█░ █░█▀█▀▄
+		${BLUE}  ░▀░▀░▀░ ▀░▀░▀░▀${WHITE} 2.2
 	EOF
 }
 
