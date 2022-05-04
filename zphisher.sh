@@ -550,7 +550,7 @@ site_instagram() {
 site_gmail() {
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} kkkkkk
+		${RED}[${WHITE}01${RED}]${ORANGE} Gmail Eski Giriş Sayfası
 		${RED}[${WHITE}02${RED}]${ORANGE} Gmail Yeni Giriş Sayfası
 		${RED}[${WHITE}03${RED}]${ORANGE} Gelişmiş Oylama Anketi
 
