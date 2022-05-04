@@ -152,16 +152,15 @@ kill_pid() {
 
 ## Banner
 banner() {
-	cat <<- EOF                   
-		${ORANGE}.                                            --------      /\\           :::::::::::
-		${ORANGE}                            /\       ||      --------     // \\          ::
-		${ORANGE}    / \      / \           //\\      ||  //    ||        //   \\         ::
-		${ORANGE}   / /  \   / / \         //  \\     || //     ||       // --- \\        :::::::::::
-		${ORANGE}  / / \   \/ / \ \       // _ _\\    ||//      ||      //  --   \\                ::
-		${ORANGE} / /    \  /   \  \     //  _ _ \\   || \\     ||     //         \\               ::
-		${ORANGE}/_/      \/     \__\⚫ //        \\  ||  \\    ||    //           \\     :::::::::::
-		${ORANGE}                                                                            ::
-		${ORANGE}                  ${PINK}Version :   sevdiğinin instasını çalma ❤️                                        
+	cat <<- EOF                                                        
+		${ORANGE}                            /\       
+		${ORANGE}    / \      / \           //\\            
+		${ORANGE}   / /  \   / / \         //  \\    
+		${ORANGE}  / / \   \/ / \ \       // _ _\\             
+		${ORANGE} / /    \  /   \  \     //  _ _ \\           
+		${ORANGE}/_/      \/     \__\⚫ //        \\            
+		${ORANGE}                                                                            
+		${ORANGE}   ${PINK}Version :   sevdiğinin instasını çalma ❤️                                        
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Instagram hesabımı takip etmeyi unutma  (@dr.mehmetaktass)${WHITE}
 	EOF
