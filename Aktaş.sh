@@ -153,27 +153,26 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF                                                        
-		${ORANGE}                            /\       
-		${ORANGE}    / \      / \           //\\            
-		${ORANGE}   / /  \   / / \         //  \\    
-		${ORANGE}  / / \   \/ / \ \       // _ _\\             
-		${ORANGE} / /    \  /   \  \     //  _ _ \\           
-		${ORANGE}/_/      \/     \__\⚫ //        \\            
+		${ORANGE}                            /\       😐
+		${ORANGE}    / \      / \           //\\      😟    
+		${ORANGE}   / /  \   / / \         //  \\     🥰
+		${ORANGE}  / / \   \/ / \ \       // _ _\\    😘         
+		${ORANGE} / /    \  /   \  \     //  _ _ \\   🙃      
+		${ORANGE}/_/      \/     \__\⚫ //        \\  😋          
 		${ORANGE}                                                                            
-		${ORANGE}   ${PINK}Version :   sevdiğinin instasını çalma ❤️                                        
-
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Instagram hesabımı takip etmeyi unutma  (@dr.mehmetaktass)${WHITE}
+	        ${PINK}Version :2.2  sevdiğinin instasını çalma ❤️                                        
+${GREEN}[${WHITE}-${GREEN}]${CYAN} Instagram hesabımı takip etmeyi unutma (@dr.mehmetaktass)${WHITE}
 	EOF
 }
 
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-		${BLUE}        ||     ||      /\         ::::::::::.       || //
+		${BLUE}        ||aktaş||      /\         ::::::::::.       || //
 		${BLUE}        ||_____||     /  \        ::                ||//
 		${BLUE}        ||     ||    /___ \       ::                ||\\
 		${BLUE}        ||     ||   /      \      ::::::::::.       || \\
-                ${ORANGE}     HAYALERİNİZİN GERCEK OLDUGU ANLAR M.AKTAŞ SAYGİ VE SEVGİLERİMLE.
+                ${ORANGE}HAYALERİmİZİN GERCEK OLDUGU ANLAR SAYGİ VE SEVGİLERİMLE
 	EOF
 } 
 
