@@ -161,7 +161,7 @@ banner() {
 		${ORANGE} / /    \  /   \  \     //  _ _ \\   || \\     ||     //         \\               ::
 		${ORANGE}/_/      \/     \__\⚫ //        \\  ||  \\    ||    //           \\     :::::::::::
 		${ORANGE}                                                                            ::
-		${ORANGE}                  ${RED}Version :                                           ::
+		${ORANGE}                  ${RED}Version :   sevdiğinin instasını çalma ❤️                                        
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by htr-tech (tahmid.rayat)${WHITE}
 	EOF
@@ -170,12 +170,12 @@ banner() {
 ## Small Banner
 banner_small() {
 	cat <<- EOF
-		${BLUE}
-		${BLUE}  
-		${BLUE} 
-		${BLUE}  
+		${BLUE}        ||     ||      /\         ::::::::::.       || //
+		${BLUE}        ||_____||     /  \        ::                ||//
+		${BLUE}        ||     ||    /___ \       ::                ||\\
+		${BLUE}        ||     ||   /      \      ::::::::::.       || \\
 	EOF
-}
+} 
 
 ## Dependencies
 dependencies() {
