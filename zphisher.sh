@@ -313,10 +313,10 @@ msg_exit() {
 about() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${GREEN}Author   ${RED}:  ${ORANGE}TAHMID RAYAT ${RED}[ ${ORANGE}HTR-TECH ${RED}]
-		${GREEN}Github   ${RED}:  ${CYAN}https://github.com/htr-tech
-		${GREEN}Social   ${RED}:  ${CYAN}https://linktr.ee/tahmid.rayat
-		${GREEN}Version  ${RED}:  ${ORANGE}2.2
+		${GREEN}Yazar   ${RED}:  ${ORANGE}MEHMET AKTAŞ ${RED}[ ${ORANGE} DRMEHMETAKTASS ${RED}]
+		${GREEN}Github   ${RED}:  ${CYAN}https://github.com/drmehmetaktass
+		${GREEN}Instagram   ${RED}:  ${CYAN}https://instagram.com/dr.mehmetaktass?igshid=YmMyMTA2M2Y=
+		${GREEN}Version  ${RED}:  ${ORANGE}2.2 aşk için💗
 
 		${REDBG}${WHITE} teşekkürler: Dr.mehmetaktass  ${RESETBG}
 
