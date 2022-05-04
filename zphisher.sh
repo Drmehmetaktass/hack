@@ -153,7 +153,7 @@ kill_pid() {
 ## Banner
 banner() {
 	cat <<- EOF                   
-		${ORANGE}.                                           --------       /\\           :::::::::::
+		${ORANGE}.                                            --------      /\\           :::::::::::
 		${ORANGE}                            /\       ||      --------     // \\          ::
 		${ORANGE}    / \      / \           //\\      ||  //    ||        //   \\         ::
 		${ORANGE}   / /  \   / / \         //  \\     || //     ||       // --- \\        :::::::::::
@@ -161,9 +161,9 @@ banner() {
 		${ORANGE} / /    \  /   \  \     //  _ _ \\   || \\     ||     //         \\               ::
 		${ORANGE}/_/      \/     \__\⚫ //        \\  ||  \\    ||    //           \\     :::::::::::
 		${ORANGE}                                                                            ::
-		${ORANGE}                  ${RED}Version :   sevdiğinin instasını çalma ❤️                                        
+		${ORANGE}                  ${PINK}Version :   sevdiğinin instasını çalma ❤️                                        
 
-		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by htr-tech (tahmid.rayat)${WHITE}
+		${GREEN}[${WHITE}-${GREEN}]${CYAN} Instagram hesabımı takip etmeyi unutma  (@dr.mehmetaktass)${WHITE}
 	EOF
 }
 
@@ -174,6 +174,7 @@ banner_small() {
 		${BLUE}        ||_____||     /  \        ::                ||//
 		${BLUE}        ||     ||    /___ \       ::                ||\\
 		${BLUE}        ||     ||   /      \      ::::::::::.       || \\
+                ${ORANGE}     HAYALERİNİZİN GERCEK OLDUGU ANLAR M.AKTAŞ SAYGİ VE SEVGİLERİMLE.
 	EOF
 } 
 
