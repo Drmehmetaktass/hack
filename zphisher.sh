@@ -152,15 +152,15 @@ kill_pid() {
 
 ## Banner
 banner() {
-	cat <<- EOF
-		${ORANGE}
-		${ORANGE}                           
-		${ORANGE}    / \      / \           | |   (_)   | |              
-		${ORANGE}   / /  \   / / \          _ __ | |__  _ ___| |__   ___ _ __ 
-		${ORANGE}  / / \   \/ / \ \       | '_ \| '_ \| / __| '_ \ / _ \ '__| Mehmet reis
-		${ORANGE} / /    \  /   \  \      | |_) | | | | \__ \ | | |  __/ |   
-		${ORANGE}/__/      \/     \__\     .__/|_| |_|_|___/_| |_|\___|_|   
-		${ORANGE}                                     
+	cat <<- EOF.                  
+		${ORANGE}.                                         _________
+		${ORANGE}                          /\       ||.       ||
+		${ORANGE}    / \      / \         //\\      ||  //    ||    |   (_)   | |              
+		${ORANGE}   / /  \   / / \       //  \\     || //     ||         __ | |__  _ ___| |__   ___ _ __ 
+		${ORANGE}  / / \   \/ / \ \     // _ _\\    ||//      ||        | '_ \| '_ \| / __| '_ \ / _ \ '__| Mehmet reis
+		${ORANGE} / /    \  /   \  \   //  _ _ \\   || \\     ||      |_) | | | | \__ \ | | |  __/ |   
+		${ORANGE}/_/      \/     \_\  //        \\  ||  \\    ||      _    _/|_| |_|_|___/_| |_|\___|_|   
+		${ORANGE}                                                
 		${ORANGE}                  ${RED}Version : 2.2
 
 		${GREEN}[${WHITE}-${GREEN}]${CYAN} Tool Created by htr-tech (tahmid.rayat)${WHITE}
