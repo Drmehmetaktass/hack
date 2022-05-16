@@ -1,8 +1,8 @@
 <!-- Aktaş -->
 
-
-  <img src="">
-
+<p align="center">
+  <img src="https://telegra.ph/file/9b0be2f7365db61cb3615.jpg">
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-2.2-green?style=for-the-badge">
@@ -76,7 +76,7 @@ $ docker run --rm -it htrtech/zphisher
 :: iş akışı ::
 </h3>
 <p align="center">
-<img src=".imgs/wf.gif"/>
+<img src="https://telegra.ph/file/6490bf2848cdfaed21e09.jpg"/>
 </p>
 
 
