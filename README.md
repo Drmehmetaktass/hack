@@ -22,7 +22,7 @@
 
 ##
 
-<h3><p align="center">Disclaimer</p></h3>
+<h3><p align="center">sorumluluk reddi</p></h3>
 
 <i><b>Aktaş hack </b> ile ilgili tüm eylemler veya faaliyetler yalnızca sizin sorumluluğunuzdadır. Bu araç setinin kötüye kullanılması, söz konusu kişilere karşı <b>cezai suçlamalar</b> ile sonuçlanabilir. <b>
 
@@ -41,13 +41,17 @@
 
 - Sadece, Bu depoyu klonla -
 ```
-$ git clone https://github.com/drmehmetaktass/hack.git
+pkg install git
+```
+
+```
+git clone https://github.com/drmehmetaktass/hack.git
 ```
 
 - Klonlanmış dizine geçin ve "Aktaş.sh" dosyasını çalıştırın -
 ```
-$ cd hack
-$ bash Aktaş.sh
+ cd hack
+ bash Aktaş.sh
 ```
 
 - İlk başlatmada, bağımlılıkları kuracak ve bu kadar. "Hack" yüklendi.
