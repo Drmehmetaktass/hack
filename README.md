@@ -1,10 +1,6 @@
 <!-- Aktaş -->
 
 <p align="center">
-  <img src="https://telegra.ph/file/9b0be2f7365db61cb3615.jpg">
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Version-2.2-green?style=for-the-badge">
   <img src="https://img.shields.io/github/license/drmehmetaktass/hack?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/drmehmetaktass/hack?style=for-the-badge">
@@ -38,8 +34,36 @@
 
 
 ### Kurulum
+## **🤖 Aɴᴅʀoɪᴅ**
 
-- Sadece, Bu depoyu klonla -
+📲 **Download Termux from the button below**
+
+📲 **Termux'u aşağıdaki butonlardan indirin**
+
+<a
+href='https://github.com/termux/termux-app/releases'>
+<img
+alt='Termux on GitHub APKs' 
+src='https://f-droid.org/repo/com.termux/en-US/icon_7jMZ7XD80oeucmGEaTwktIRZexLtGWvJfKdVD6Wu2SI=.png'
+width="80">
+<a
+href='https://play.google.com/store/apps/details?id=com.termux'>
+<img
+alt='Termux on Google Play' 
+src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
+width="235">
+<a
+href="https://f-droid.org/packages/com.termux">
+<img
+src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+alt="Termux on F-Droid"
+width="235">
+</a>
+
+📋 **Then paste the code below into Termux and follow the steps**
+
+📋 **Daha sonra aşağıdaki kodu Termux'a yapıştırın ve adımları takip edin**
+
 ```
 pkg install git
 ```
@@ -48,7 +72,7 @@ pkg install git
 git clone https://github.com/drmehmetaktass/hack.git
 ```
 
-- Klonlanmış dizine geçin ve "Aktaş.sh" dosyasını çalıştırın -
+- Klonlanmış dizine geçin ve "Aktaş.sh" dosyasını çalıştırın eğer kurulmasıysa aşağıda bağımlılıkarda bulunan komutları yükle daha sonra tekrardan kur
 ```
  cd hack
  bash Aktaş.sh
