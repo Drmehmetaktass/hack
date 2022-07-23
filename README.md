@@ -65,7 +65,9 @@ width="235">
 📋 **Daha sonra aşağıdaki kodu Termux'a yapıştırın ve adımları takip edin**
 
 ```
+
 pkg install git
+
 ```
 
 ```
@@ -74,8 +76,10 @@ git clone https://github.com/drmehmetaktass/hack.git
 
 - Klonlanmış dizine geçin ve "Aktaş.sh" dosyasını çalıştırın eğer kurulmasıysa aşağıda bağımlılıkarda bulunan komutları yükle daha sonra tekrardan kur
 ```
+
  cd hack
  bash Aktaş.sh
+
 ```
 
 - İlk başlatmada, bağımlılıkları kuracak ve bu kadar. "Hack" yüklendi.
